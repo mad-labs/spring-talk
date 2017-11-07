@@ -32,6 +32,15 @@ public class PersonRepositoryImpl
         return allPerson;
     }
 
+    public Person findOne(Integer id) {
+        List<Person> allPerson = findAll();
+        if (allPerson.isEmpty()){
+            return null;
+        }
+        return allPerson.get(id);
+    }
+
+
     public int count() {
         String[][] rawPersonsDataList = getPersonsDataList();
         return notNullOrEmpty(rawPersonsDataList) ? rawPersonsDataList.length : 0;
@@ -68,14 +77,6 @@ public class PersonRepositoryImpl
 
     private boolean notNullOrEmpty(String[][] array) {
         return array != null && array.length > 0;
-    }
-
-    public Person findOne(Integer id) {
-        List<Person> allPerson = findAll();
-        if (allPerson.isEmpty()){
-            return null;
-        }
-        return allPerson.get(id);
     }
 
     private Person composePerson(String[] rawPersonData){
