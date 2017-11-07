@@ -10,7 +10,7 @@ $ git clone https://github.com/mad-labs/spring-talk.git
 
 * Compile and package it:
 ```
-$ ./mvnw clean install
+$ ./mvnw clean package
 ```
 
 * Run it:
