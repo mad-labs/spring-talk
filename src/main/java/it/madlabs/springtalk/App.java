@@ -1,6 +1,7 @@
 package it.madlabs.springtalk;
 
-import it.madlabs.springtalk.business.PersonGreeter;
+import it.madlabs.springtalk.business.services.PersonGreeterService;
+import it.madlabs.springtalk.business.services.impl.PersonGreeterServiceImpl;
 
 /**
  * Hello world!
@@ -9,9 +10,9 @@ import it.madlabs.springtalk.business.PersonGreeter;
 public class App {
     public static void main( String[] args ) {
         System.out.println("\n *** WELCOME TO GREAT PERSONS GREATER *** \n");
-        PersonGreeter personGreeter = new PersonGreeter();
+        PersonGreeterService personGreeter = new PersonGreeterServiceImpl();
 
-        String worldHello = personGreeter.composeGreetingToTheWolrd();
+        String worldHello = personGreeter.composeGreetingToTheWorld();
         System.out.println(worldHello);
 
         String personHello = personGreeter.composeGreetingToRandomPerson();
