@@ -5,14 +5,14 @@ import it.madlabs.springtalk.model.entities.Greeting;
 import it.madlabs.springtalk.model.repositories.GreetingsRepository;
 import it.madlabs.springtalk.model.repositories.imp.GreetingsRepositoryImpl;
 
-public class FormalGreatingStyleServiceImpl
+public class FormalGreetingStyleServiceImpl
         implements GreetingStyleService {
 
     private final String type = "formal";
 
     private GreetingsRepository greetingsRepository;
 
-    public FormalGreatingStyleServiceImpl() {
+    public FormalGreetingStyleServiceImpl() {
         this.greetingsRepository = new GreetingsRepositoryImpl();
     }
 

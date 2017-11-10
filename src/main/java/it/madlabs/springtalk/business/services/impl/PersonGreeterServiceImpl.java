@@ -16,7 +16,7 @@ public class PersonGreeterServiceImpl implements PersonGreeterService {
 
     public PersonGreeterServiceImpl() {
         this.personRepository = new PersonRepositoryImpl();
-        this.greetingStyleService = new InformalGreatingStyleServiceImpl();
+        this.greetingStyleService = new InformalGreetingStyleServiceImpl();
     }
 
     public String composeGreetingToTheWorld() {
@@ -32,6 +32,11 @@ public class PersonGreeterServiceImpl implements PersonGreeterService {
 
     private String getDayPeriod() {
         return Calendar.getInstance().get(Calendar.AM_PM) == Calendar.AM ? "am" : "pm";
+    }
+
+    public String composeGreetingToSomePerson(int id) {
+        String greetingFormat = greetingStyleService.getFormatByPeriod(getDayPeriod());
+        return composeGreetingToSomePerson(id, greetingFormat);
     }
 
     public String composeGreetingToSomePerson(int id, String greetingFormat) {

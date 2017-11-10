@@ -6,5 +6,5 @@ public interface PersonGreeterService {
 
     String composeGreetingToRandomPerson();
 
-    String composeGreetingToSomePerson(int id, String greetinFormat);
+    String composeGreetingToSomePerson(int id);
 }

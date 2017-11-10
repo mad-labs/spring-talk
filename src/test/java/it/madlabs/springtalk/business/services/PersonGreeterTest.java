@@ -23,15 +23,18 @@ public class PersonGreeterTest {
         Assert.assertEquals("Hello World!", result);
     }
 
+    /*
+        Cannot test! I need a way to control the data inside PersonGreeterService!
+     */
     @Test
     public void composeGreetingToRandomPerson() throws Exception {
         String result = personGreeter.composeGreetingToTheWorld();
-        //Assert.assertEquals("Hello World!", result);
+        Assert.assertEquals("Hello World!", result);
     }
 
     @Test
     public void composeGreetingToSomePerson() throws Exception {
-        String result = personGreeter.composeGreetingToSomePerson(0, "Hello %s %s (%s)");
+        String result = personGreeter.composeGreetingToSomePerson(0);
         Assert.assertEquals("Hello Mario Mario (mario.mario@nintendo.com)", result);
     }
 
