@@ -2,6 +2,7 @@ package it.madlabs.springtalk;
 
 import it.madlabs.springtalk.business.services.GreetingStyleService;
 import it.madlabs.springtalk.business.services.PersonGreeterService;
+import it.madlabs.springtalk.business.services.impl.FormalGreetingStyleServiceImpl;
 import it.madlabs.springtalk.business.services.impl.InformalGreetingStyleServiceImpl;
 import it.madlabs.springtalk.business.services.impl.PersonGreeterServiceImpl;
 import it.madlabs.springtalk.model.data.SimpleDataSource;
@@ -24,7 +25,8 @@ public class App {
         GreetingsRepository greetingsRepository = new GreetingsRepositoryImpl(simpleDataSource);
         PersonRepository personRepository = new PersonRepositoryImpl(simpleDataSource);
 
-        GreetingStyleService greetingStyleService = new InformalGreetingStyleServiceImpl(greetingsRepository);
+        //GreetingStyleService greetingStyleService = new InformalGreetingStyleServiceImpl(greetingsRepository);
+        GreetingStyleService greetingStyleService = new FormalGreetingStyleServiceImpl(greetingsRepository);
 
         PersonGreeterService personGreeter = new PersonGreeterServiceImpl(personRepository, greetingStyleService);
 
