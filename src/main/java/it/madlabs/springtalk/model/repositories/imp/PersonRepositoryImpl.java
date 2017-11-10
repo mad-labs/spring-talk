@@ -13,8 +13,12 @@ public class PersonRepositoryImpl
 
     public SimpleDataSource simpleDataSource;
 
-    public PersonRepositoryImpl(){
-        this.simpleDataSource = new SimpleDataSourceImpl();
+//    public PersonRepositoryImpl(){
+//        this.simpleDataSource = new SimpleDataSourceImpl();
+//    }
+
+    public PersonRepositoryImpl(SimpleDataSource simpleDataSource) {
+        this.simpleDataSource = simpleDataSource;
     }
 
     public List<Person> findAll() {

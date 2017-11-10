@@ -4,7 +4,11 @@ import it.madlabs.springtalk.business.services.GreetingStyleService;
 import it.madlabs.springtalk.business.services.PersonGreeterService;
 import it.madlabs.springtalk.business.services.impl.InformalGreetingStyleServiceImpl;
 import it.madlabs.springtalk.business.services.impl.PersonGreeterServiceImpl;
+import it.madlabs.springtalk.model.data.SimpleDataSource;
+import it.madlabs.springtalk.model.data.impl.SimpleDataSourceImpl;
+import it.madlabs.springtalk.model.repositories.GreetingsRepository;
 import it.madlabs.springtalk.model.repositories.PersonRepository;
+import it.madlabs.springtalk.model.repositories.imp.GreetingsRepositoryImpl;
 import it.madlabs.springtalk.model.repositories.imp.PersonRepositoryImpl;
 
 /**
@@ -15,8 +19,12 @@ public class App {
     public static void main( String[] args ) {
         System.out.println("\n *** WELCOME TO GREAT PERSONS GREATER *** \n");
 
-        PersonRepository personRepository = new PersonRepositoryImpl();
-        GreetingStyleService greetingStyleService = new InformalGreetingStyleServiceImpl();
+        SimpleDataSource simpleDataSource = new SimpleDataSourceImpl();
+
+        GreetingsRepository greetingsRepository = new GreetingsRepositoryImpl(simpleDataSource);
+        PersonRepository personRepository = new PersonRepositoryImpl(simpleDataSource);
+
+        GreetingStyleService greetingStyleService = new InformalGreetingStyleServiceImpl(greetingsRepository);
 
         PersonGreeterService personGreeter = new PersonGreeterServiceImpl(personRepository, greetingStyleService);
 

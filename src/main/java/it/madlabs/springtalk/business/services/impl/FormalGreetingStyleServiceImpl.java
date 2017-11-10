@@ -12,8 +12,12 @@ public class FormalGreetingStyleServiceImpl
 
     private GreetingsRepository greetingsRepository;
 
-    public FormalGreetingStyleServiceImpl() {
-        this.greetingsRepository = new GreetingsRepositoryImpl();
+//    public FormalGreetingStyleServiceImpl() {
+//        this.greetingsRepository = new GreetingsRepositoryImpl();
+//    }
+
+    public FormalGreetingStyleServiceImpl(GreetingsRepository greetingsRepository) {
+        this.greetingsRepository = greetingsRepository;
     }
 
     public String getFormatByPeriod(String period) {
