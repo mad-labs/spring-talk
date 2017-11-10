@@ -14,9 +14,14 @@ public class PersonGreeterServiceImpl implements PersonGreeterService {
     private PersonRepository personRepository;
     private GreetingStyleService greetingStyleService;
 
-    public PersonGreeterServiceImpl() {
-        this.personRepository = new PersonRepositoryImpl();
-        this.greetingStyleService = new InformalGreetingStyleServiceImpl();
+//    public PersonGreeterServiceImpl() {
+//        this.personRepository = new PersonRepositoryImpl();
+//        this.greetingStyleService = new InformalGreetingStyleServiceImpl();
+//    }
+
+    public PersonGreeterServiceImpl(PersonRepository personRepository, GreetingStyleService greetingStyleService) {
+        this.personRepository = personRepository;
+        this.greetingStyleService = greetingStyleService;
     }
 
     public String composeGreetingToTheWorld() {

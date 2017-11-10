@@ -15,7 +15,10 @@ public class App {
     public static void main( String[] args ) {
         System.out.println("\n *** WELCOME TO GREAT PERSONS GREATER *** \n");
 
-        PersonGreeterService personGreeter = new PersonGreeterServiceImpl();
+        PersonRepository personRepository = new PersonRepositoryImpl();
+        GreetingStyleService greetingStyleService = new InformalGreetingStyleServiceImpl();
+
+        PersonGreeterService personGreeter = new PersonGreeterServiceImpl(personRepository, greetingStyleService);
 
         String worldHello = personGreeter.composeGreetingToTheWorld();
         System.out.println(worldHello);
