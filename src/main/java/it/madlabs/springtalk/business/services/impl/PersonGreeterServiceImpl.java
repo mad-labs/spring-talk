@@ -19,6 +19,9 @@ public class PersonGreeterServiceImpl implements PersonGreeterService {
 //        this.greetingStyleService = new InformalGreetingStyleServiceImpl();
 //    }
 
+    public PersonGreeterServiceImpl() {
+    }
+
     public PersonGreeterServiceImpl(PersonRepository personRepository, GreetingStyleService greetingStyleService) {
         this.personRepository = personRepository;
         this.greetingStyleService = greetingStyleService;
@@ -50,5 +53,13 @@ public class PersonGreeterServiceImpl implements PersonGreeterService {
             return String.format(greetingFormat, person.getName(), person.getSurname(), person.getEmail());
         }
         return "I don't know that person :(";
+    }
+
+    public void setPersonRepository(PersonRepository personRepository) {
+        this.personRepository = personRepository;
+    }
+
+    public void setGreetingStyleService(GreetingStyleService greetingStyleService) {
+        this.greetingStyleService = greetingStyleService;
     }
 }

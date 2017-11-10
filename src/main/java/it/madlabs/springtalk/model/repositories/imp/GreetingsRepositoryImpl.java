@@ -17,6 +17,10 @@ public class GreetingsRepositoryImpl
 //        this.simpleDataSource = new SimpleDataSourceImpl();
 //    }
 
+
+    public GreetingsRepositoryImpl() {
+    }
+
     public GreetingsRepositoryImpl(SimpleDataSource simpleDataSource) {
         this.simpleDataSource = simpleDataSource;
     }
@@ -58,5 +62,9 @@ public class GreetingsRepositoryImpl
 
     private Greeting composeGreeting(String[] rawGreetingData){
         return new Greeting(rawGreetingData[0], rawGreetingData[1], rawGreetingData[2]);
+    }
+
+    public void setSimpleDataSource(SimpleDataSource simpleDataSource) {
+        this.simpleDataSource = simpleDataSource;
     }
 }

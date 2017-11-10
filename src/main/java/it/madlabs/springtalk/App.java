@@ -1,9 +1,7 @@
 package it.madlabs.springtalk;
 
 import it.madlabs.springtalk.business.services.GreetingStyleService;
-import it.madlabs.springtalk.business.services.PersonGreeterService;
 import it.madlabs.springtalk.business.services.impl.FormalGreetingStyleServiceImpl;
-import it.madlabs.springtalk.business.services.impl.InformalGreetingStyleServiceImpl;
 import it.madlabs.springtalk.business.services.impl.PersonGreeterServiceImpl;
 import it.madlabs.springtalk.model.data.SimpleDataSource;
 import it.madlabs.springtalk.model.data.impl.SimpleDataSourceImpl;
@@ -22,13 +20,19 @@ public class App {
 
         SimpleDataSource simpleDataSource = new SimpleDataSourceImpl();
 
-        GreetingsRepository greetingsRepository = new GreetingsRepositoryImpl(simpleDataSource);
-        PersonRepository personRepository = new PersonRepositoryImpl(simpleDataSource);
+        GreetingsRepository greetingsRepository = new GreetingsRepositoryImpl();
+        greetingsRepository.setSimpleDataSource(simpleDataSource);
+
+        PersonRepository personRepository = new PersonRepositoryImpl();
+        personRepository.setSimpleDataSource(simpleDataSource);
 
         //GreetingStyleService greetingStyleService = new InformalGreetingStyleServiceImpl(greetingsRepository);
-        GreetingStyleService greetingStyleService = new FormalGreetingStyleServiceImpl(greetingsRepository);
+        GreetingStyleService greetingStyleService = new FormalGreetingStyleServiceImpl();
+        greetingStyleService.setGreetingsRepository(greetingsRepository);
 
-        PersonGreeterService personGreeter = new PersonGreeterServiceImpl(personRepository, greetingStyleService);
+        PersonGreeterServiceImpl personGreeter = new PersonGreeterServiceImpl();
+        personGreeter.setPersonRepository(personRepository);
+        personGreeter.setGreetingStyleService(greetingStyleService);
 
         String worldHello = personGreeter.composeGreetingToTheWorld();
         System.out.println(worldHello);

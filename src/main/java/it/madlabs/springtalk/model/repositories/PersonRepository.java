@@ -1,5 +1,6 @@
 package it.madlabs.springtalk.model.repositories;
 
+import it.madlabs.springtalk.model.data.SimpleDataSource;
 import it.madlabs.springtalk.model.entities.Person;
 
 import java.util.List;
@@ -11,4 +12,6 @@ public interface PersonRepository {
     Person findOne(Integer id);
 
     int count();
+
+    void setSimpleDataSource(SimpleDataSource simpleDataSource);
 }

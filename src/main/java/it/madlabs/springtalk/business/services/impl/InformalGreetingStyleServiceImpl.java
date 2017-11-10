@@ -16,6 +16,10 @@ public class InformalGreetingStyleServiceImpl
 //        this.greetingsRepository = new GreetingsRepositoryImpl();
 //    }
 
+
+    public InformalGreetingStyleServiceImpl() {
+    }
+
     public InformalGreetingStyleServiceImpl(GreetingsRepository greetingsRepository) {
         this.greetingsRepository = greetingsRepository;
     }
@@ -25,4 +29,9 @@ public class InformalGreetingStyleServiceImpl
         Greeting greeting = greetingsRepository.findByTypeAndPeriod(type, period);
         return greeting != null ? greeting.getFormat() : "";
     }
+
+    public void setGreetingsRepository(GreetingsRepository greetingsRepository) {
+        this.greetingsRepository = greetingsRepository;
+    }
+
 }

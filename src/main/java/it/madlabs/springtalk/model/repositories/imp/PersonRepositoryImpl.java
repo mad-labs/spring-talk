@@ -17,6 +17,10 @@ public class PersonRepositoryImpl
 //        this.simpleDataSource = new SimpleDataSourceImpl();
 //    }
 
+
+    public PersonRepositoryImpl() {
+    }
+
     public PersonRepositoryImpl(SimpleDataSource simpleDataSource) {
         this.simpleDataSource = simpleDataSource;
     }
@@ -48,5 +52,9 @@ public class PersonRepositoryImpl
 
     private Person composePerson(String[] rawPersonData){
         return new Person(rawPersonData[0], rawPersonData[1], rawPersonData[2]);
+    }
+
+    public void setSimpleDataSource(SimpleDataSource simpleDataSource) {
+        this.simpleDataSource = simpleDataSource;
     }
 }
