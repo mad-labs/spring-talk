@@ -1,5 +1,6 @@
 package it.madlabs.springtalk.model.repositories.imp;
 
+import it.madlabs.springtalk.model.data.SimpleDataSource;
 import it.madlabs.springtalk.model.data.impl.SimpleDataSourceImpl;
 import it.madlabs.springtalk.model.entities.Greeting;
 import it.madlabs.springtalk.model.repositories.GreetingsRepository;
@@ -10,7 +11,7 @@ import java.util.List;
 public class GreetingsRepositoryImpl
         implements GreetingsRepository {
 
-    public SimpleDataSourceImpl simpleDataSource;
+    public SimpleDataSource simpleDataSource;
 
     public GreetingsRepositoryImpl(){
         this.simpleDataSource = new SimpleDataSourceImpl();
