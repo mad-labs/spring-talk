@@ -3,7 +3,7 @@ package it.madlabs.springtalk.business.services.impl;
 import it.madlabs.springtalk.business.services.GreetingStyleService;
 import it.madlabs.springtalk.model.entities.Greeting;
 import it.madlabs.springtalk.model.repositories.GreetingsRepository;
-import it.madlabs.springtalk.model.repositories.imp.GreetingsRepositoryImpl;
+import it.madlabs.springtalk.model.repositories.impl.GreetingsRepositoryImpl;
 
 public class InformalGreetingStyleServiceImpl
         implements GreetingStyleService {

@@ -8,8 +8,8 @@ import it.madlabs.springtalk.model.data.SimpleDataSource;
 import it.madlabs.springtalk.model.data.impl.SimpleDataSourceImpl;
 import it.madlabs.springtalk.model.repositories.GreetingsRepository;
 import it.madlabs.springtalk.model.repositories.PersonRepository;
-import it.madlabs.springtalk.model.repositories.imp.GreetingsRepositoryImpl;
-import it.madlabs.springtalk.model.repositories.imp.PersonRepositoryImpl;
+import it.madlabs.springtalk.model.repositories.impl.GreetingsRepositoryImpl;
+import it.madlabs.springtalk.model.repositories.impl.PersonRepositoryImpl;
 
 /**
  * Hello world!
@@ -31,14 +31,14 @@ public class App {
         GreetingStyleService greetingStyleService = new FormalGreetingStyleServiceImpl();
         greetingStyleService.setGreetingsRepository(greetingsRepository);
 
-        PersonGreeterService personGreeter = new PersonGreeterServiceImpl();
-        personGreeter.setPersonRepository(personRepository);
-        personGreeter.setGreetingStyleService(greetingStyleService);
+        PersonGreeterService personGreeterService = new PersonGreeterServiceImpl();
+        personGreeterService.setPersonRepository(personRepository);
+        personGreeterService.setGreetingStyleService(greetingStyleService);
 
-        String worldHello = personGreeter.composeGreetingToTheWorld();
+        String worldHello = personGreeterService.composeGreetingToTheWorld();
         System.out.println(worldHello);
 
-        String personHello = personGreeter.composeGreetingToRandomPerson();
+        String personHello = personGreeterService.composeGreetingToRandomPerson();
         System.out.println(personHello);
 
         System.out.println("\n *** GOODBYE *** \n");

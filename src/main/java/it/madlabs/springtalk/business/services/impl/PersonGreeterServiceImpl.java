@@ -4,7 +4,7 @@ import it.madlabs.springtalk.business.services.GreetingStyleService;
 import it.madlabs.springtalk.business.services.PersonGreeterService;
 import it.madlabs.springtalk.model.entities.Person;
 import it.madlabs.springtalk.model.repositories.PersonRepository;
-import it.madlabs.springtalk.model.repositories.imp.PersonRepositoryImpl;
+import it.madlabs.springtalk.model.repositories.impl.PersonRepositoryImpl;
 
 import java.util.Calendar;
 import java.util.Random;
