@@ -1,4 +1,4 @@
-package it.madlabs.springtalk.model.repositories.imp;
+package it.madlabs.springtalk.model.repositories.impl;
 
 import it.madlabs.springtalk.model.data.SimpleDataSource;
 import it.madlabs.springtalk.model.data.impl.SimpleDataSourceImpl;

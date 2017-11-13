@@ -1,11 +1,7 @@
 package it.madlabs.springtalk;
 
-import it.madlabs.springtalk.business.services.GreetingStyleService;
 import it.madlabs.springtalk.business.services.PersonGreeterService;
-import it.madlabs.springtalk.business.services.impl.InformalGreetingStyleServiceImpl;
 import it.madlabs.springtalk.business.services.impl.PersonGreeterServiceImpl;
-import it.madlabs.springtalk.model.repositories.PersonRepository;
-import it.madlabs.springtalk.model.repositories.imp.PersonRepositoryImpl;
 
 /**
  * Hello world!
