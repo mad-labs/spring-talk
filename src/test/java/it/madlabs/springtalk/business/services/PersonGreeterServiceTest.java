@@ -1,10 +1,10 @@
 package it.madlabs.springtalk.business.services;
 
-import it.madlabs.springtalk.business.services.impl.InformalGreetingStyleServiceImpl;
 import it.madlabs.springtalk.business.services.impl.PersonGreeterServiceImpl;
+import it.madlabs.springtalk.model.data.SimpleDataSource;
 import it.madlabs.springtalk.model.entities.Person;
+import it.madlabs.springtalk.model.repositories.GreetingsRepository;
 import it.madlabs.springtalk.model.repositories.PersonRepository;
-import it.madlabs.springtalk.model.repositories.imp.PersonRepositoryImpl;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -13,7 +13,7 @@ import org.junit.Test;
 import java.util.Arrays;
 import java.util.List;
 
-public class PersonGreeterTest {
+public class PersonGreeterServiceTest {
 
     private PersonRepository personRepository = new PersonRepository() {
         public List<Person> findAll() {
@@ -27,11 +27,21 @@ public class PersonGreeterTest {
         public int count() {
             return 1;
         }
+
+        @Override
+        public void setSimpleDataSource(SimpleDataSource simpleDataSource) {
+            //NOTHING TO DO
+        }
     };
 
     private GreetingStyleService greetingStyleService = new GreetingStyleService() {
         public String getFormatByPeriod(String period) {
             return "Hello %s %s (%s)";
+        }
+
+        @Override
+        public void setGreetingsRepository(GreetingsRepository greetingsRepository) {
+            //NOTHING TO DO
         }
     };
 
