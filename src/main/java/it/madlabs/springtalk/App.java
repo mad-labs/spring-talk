@@ -15,12 +15,12 @@ public class App {
     public static void main( String[] args ) {
         System.out.println("\n *** WELCOME TO GREAT PERSONS GREATER *** \n");
 
-        PersonGreeterService personGreeter = new PersonGreeterServiceImpl();
+        PersonGreeterService personGreeterService = new PersonGreeterServiceImpl();
 
-        String worldHello = personGreeter.composeGreetingToTheWorld();
+        String worldHello = personGreeterService.composeGreetingToTheWorld();
         System.out.println(worldHello);
 
-        String personHello = personGreeter.composeGreetingToRandomPerson();
+        String personHello = personGreeterService.composeGreetingToRandomPerson();
         System.out.println(personHello);
 
         System.out.println("\n *** GOODBYE *** \n");

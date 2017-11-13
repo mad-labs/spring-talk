@@ -6,7 +6,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-public class PersonGreeterTest {
+public class PersonGreeterServiceTest {
     private PersonGreeterService personGreeter = new PersonGreeterServiceImpl();
 
     @Before
