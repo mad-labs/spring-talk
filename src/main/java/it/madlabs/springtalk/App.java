@@ -21,7 +21,7 @@ public class App {
 //        PersonGreeterService personGreeterService = (PersonGreeterService) beanFactory.getBean("personGreeterService");
 
         ApplicationContext context = new AnnotationConfigApplicationContext(App.class);
-        PersonGreeterService personGreeterService = (PersonGreeterService) context.getBean("personGreeterService");
+        PersonGreeterService personGreeterService = (PersonGreeterService) context.getBean(PersonGreeterService.class);
 
         String worldHello = personGreeterService.composeGreetingToTheWorld();
         System.out.println(worldHello);

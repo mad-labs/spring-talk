@@ -13,6 +13,7 @@ import java.util.List;
 public class PersonRepositoryImpl
         implements PersonRepository {
 
+    //property style autowiring
     @Autowired
     public SimpleDataSource simpleDataSource;
 

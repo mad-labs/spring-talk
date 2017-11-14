@@ -24,6 +24,7 @@ public class GreetingsRepositoryImpl
     public GreetingsRepositoryImpl() {
     }
 
+    //constructor style autowiring
     @Autowired
     public GreetingsRepositoryImpl(SimpleDataSource simpleDataSource) {
         this.simpleDataSource = simpleDataSource;

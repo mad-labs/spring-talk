@@ -6,6 +6,7 @@ import it.madlabs.springtalk.model.entities.Person;
 import it.madlabs.springtalk.model.repositories.PersonRepository;
 import it.madlabs.springtalk.model.repositories.impl.PersonRepositoryImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import java.util.Calendar;
@@ -58,10 +59,14 @@ public class PersonGreeterServiceImpl implements PersonGreeterService {
         return "I don't know that person :(";
     }
 
+    //setter stype autowiring
+    @Autowired
     public void setPersonRepository(PersonRepository personRepository) {
         this.personRepository = personRepository;
     }
 
+    @Autowired
+    @Qualifier("formalGreetingStyleServiceImpl")
     public void setGreetingStyleService(GreetingStyleService greetingStyleService) {
         this.greetingStyleService = greetingStyleService;
     }
