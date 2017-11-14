@@ -30,12 +30,13 @@ public class App {
 
         System.out.println("context.getBeanDefinitionNames() = [" + Arrays.asList(context.getBeanDefinitionNames()) + "]");
 
+
+        PersonGreeterService personGreeterService = (PersonGreeterService) context.getBean("personGreeterServiceImpl");
+
         //Exception in thread "main" java.lang.NullPointerException
         //at it.madlabs.springtalk.business.services.impl.PersonGreeterServiceImpl.composeGreetingToRandomPerson(PersonGreeterServiceImpl.java:38)
         //Why? Because we forgot some wiring!
         //personRepository is null because noone tell application context to fill it with something!
-
-        PersonGreeterService personGreeterService = (PersonGreeterService) context.getBean("personGreeterServiceImpl");
 
         String worldHello = personGreeterService.composeGreetingToTheWorld();
         System.out.println(worldHello);
