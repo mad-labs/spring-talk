@@ -1,16 +1,19 @@
 package it.madlabs.springtalk.model.repositories.impl;
 
 import it.madlabs.springtalk.model.data.SimpleDataSource;
-import it.madlabs.springtalk.model.data.impl.SimpleDataSourceImpl;
 import it.madlabs.springtalk.model.entities.Person;
 import it.madlabs.springtalk.model.repositories.PersonRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Component
 public class PersonRepositoryImpl
         implements PersonRepository {
 
+    @Autowired
     public SimpleDataSource simpleDataSource;
 
 //    public PersonRepositoryImpl(){

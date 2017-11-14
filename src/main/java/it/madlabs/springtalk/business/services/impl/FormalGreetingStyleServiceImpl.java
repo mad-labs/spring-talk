@@ -4,7 +4,10 @@ import it.madlabs.springtalk.business.services.GreetingStyleService;
 import it.madlabs.springtalk.model.entities.Greeting;
 import it.madlabs.springtalk.model.repositories.GreetingsRepository;
 import it.madlabs.springtalk.model.repositories.impl.GreetingsRepositoryImpl;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
 public class FormalGreetingStyleServiceImpl
         implements GreetingStyleService {
 
@@ -30,6 +33,7 @@ public class FormalGreetingStyleServiceImpl
         return greeting != null ? greeting.getFormat() : "";
     }
 
+    @Autowired
     public void setGreetingsRepository(GreetingsRepository greetingsRepository) {
         this.greetingsRepository = greetingsRepository;
     }

@@ -3,10 +3,12 @@ package it.madlabs.springtalk.model.data.impl;
 import it.madlabs.springtalk.model.data.SimpleDataSource;
 import it.madlabs.springtalk.model.entities.Greeting;
 import it.madlabs.springtalk.model.entities.Person;
+import org.springframework.stereotype.Component;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
+@Component
 public class SimpleDataSourceImpl implements SimpleDataSource {
     private Map<String, String[][]> catalogs;
 

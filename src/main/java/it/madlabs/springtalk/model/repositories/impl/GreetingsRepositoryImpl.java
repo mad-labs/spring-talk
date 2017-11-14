@@ -4,10 +4,13 @@ import it.madlabs.springtalk.model.data.SimpleDataSource;
 import it.madlabs.springtalk.model.data.impl.SimpleDataSourceImpl;
 import it.madlabs.springtalk.model.entities.Greeting;
 import it.madlabs.springtalk.model.repositories.GreetingsRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Component
 public class GreetingsRepositoryImpl
         implements GreetingsRepository {
 
@@ -21,6 +24,7 @@ public class GreetingsRepositoryImpl
     public GreetingsRepositoryImpl() {
     }
 
+    @Autowired
     public GreetingsRepositoryImpl(SimpleDataSource simpleDataSource) {
         this.simpleDataSource = simpleDataSource;
     }

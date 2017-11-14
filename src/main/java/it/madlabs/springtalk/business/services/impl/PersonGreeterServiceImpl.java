@@ -5,10 +5,13 @@ import it.madlabs.springtalk.business.services.PersonGreeterService;
 import it.madlabs.springtalk.model.entities.Person;
 import it.madlabs.springtalk.model.repositories.PersonRepository;
 import it.madlabs.springtalk.model.repositories.impl.PersonRepositoryImpl;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.Calendar;
 import java.util.Random;
 
+@Component
 public class PersonGreeterServiceImpl implements PersonGreeterService {
 
     private PersonRepository personRepository;

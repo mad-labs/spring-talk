@@ -4,7 +4,9 @@ import it.madlabs.springtalk.business.services.GreetingStyleService;
 import it.madlabs.springtalk.model.entities.Greeting;
 import it.madlabs.springtalk.model.repositories.GreetingsRepository;
 import it.madlabs.springtalk.model.repositories.impl.GreetingsRepositoryImpl;
+import org.springframework.stereotype.Component;
 
+@Component
 public class InformalGreetingStyleServiceImpl
         implements GreetingStyleService {
 
