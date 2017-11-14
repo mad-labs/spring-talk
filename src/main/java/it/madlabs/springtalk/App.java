@@ -6,6 +6,8 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
+import java.util.Arrays;
+
 /**
  * Hello world!
  *
@@ -21,6 +23,10 @@ public class App {
 //        PersonGreeterService personGreeterService = (PersonGreeterService) beanFactory.getBean("personGreeterService");
 
         ApplicationContext context = new AnnotationConfigApplicationContext(App.class);
+        //Exception in thread "main" org.springframework.beans.factory.NoSuchBeanDefinitionException: No bean named 'personGreeterService' available
+        //Why? Beacause bean has bean a different name!
+        //We can undestand this with: System.out.println("context.getBeanDefinitionNames() = [" + Arrays.asList(context.getBeanDefinitionNames()) + "]");
+
         PersonGreeterService personGreeterService = (PersonGreeterService) context.getBean("personGreeterService");
 
         String worldHello = personGreeterService.composeGreetingToTheWorld();
