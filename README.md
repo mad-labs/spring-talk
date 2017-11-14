@@ -10,12 +10,12 @@ $ git clone https://github.com/mad-labs/spring-talk.git
 
 * Compile and package it:
 ```
-$ ./mvnw clean package
+$ ./mvnw clean install
 ```
 
 * Run it:
 ```
-$ java -jar target/spring-talk-1.0-SNAPSHOT-jar-with-dependencies.jar 
+$ ./mvnw tomcat7:run
 ```
 
 This project use *Maven Wrapper* project,
