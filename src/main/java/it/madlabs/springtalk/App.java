@@ -48,7 +48,7 @@ public class App {
     }
 
     public static void main( String[] args ) {
-        System.out.println("\n *** WELCOME TO GREAT PERSONS GREATER *** \n");
+        System.out.println("\n *** WELCOME TO GREAT PERSONS GREETER *** \n");
 
 //        BeanFactory beanFactory = new PropertiesBeanFactory("configuration.properties");
 //        PersonGreeterService personGreeterService = (PersonGreeterService) beanFactory.getBean("personGreeterService");
