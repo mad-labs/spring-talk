@@ -13,6 +13,7 @@ public class FormalGreetingStyleServiceImpl
 
     private final String type = "formal";
 
+    @Autowired
     private GreetingsRepository greetingsRepository;
 
 //    public FormalGreetingStyleServiceImpl() {
@@ -33,7 +34,7 @@ public class FormalGreetingStyleServiceImpl
         return greeting != null ? greeting.getFormat() : "";
     }
 
-    @Autowired
+
     public void setGreetingsRepository(GreetingsRepository greetingsRepository) {
         this.greetingsRepository = greetingsRepository;
     }
