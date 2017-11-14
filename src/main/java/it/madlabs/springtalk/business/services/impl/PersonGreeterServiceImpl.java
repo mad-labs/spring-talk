@@ -25,6 +25,7 @@ public class PersonGreeterServiceImpl implements PersonGreeterService {
     public PersonGreeterServiceImpl() {
     }
 
+    @Autowired
     public PersonGreeterServiceImpl(PersonRepository personRepository, GreetingStyleService greetingStyleService) {
         this.personRepository = personRepository;
         this.greetingStyleService = greetingStyleService;

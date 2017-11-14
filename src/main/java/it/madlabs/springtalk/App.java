@@ -31,6 +31,10 @@ public class App {
         System.out.println("context.getBeanDefinitionNames() = [" + Arrays.asList(context.getBeanDefinitionNames()) + "]");
 
 
+        //WARNING: Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'personGreeterServiceImpl'
+        //Caused by: org.springframework.beans.factory.NoUniqueBeanDefinitionException: No qualifying bean of type 'it.madlabs.springtalk.business.services.GreetingStyleService' available: expected single matching bean but found 2: formalGreetingStyleServiceImpl,informalGreetingStyleServiceImpl
+        //Why? Because we have 2 beans with the same interface!
+
         PersonGreeterService personGreeterService = (PersonGreeterService) context.getBean("personGreeterServiceImpl");
 
         //Exception in thread "main" java.lang.NullPointerException
