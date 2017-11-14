@@ -14,38 +14,13 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
  * Hello world!
  *
  */
-@Configuration
 public class App {
-
-    @Bean
-    public SimpleDataSource simpleDataSource(){
-        return new SimpleDataSourceImpl();
-    }
-
-    @Bean
-    public GreetingsRepository greetingsRepository(SimpleDataSource simpleDataSource){
-        return new GreetingsRepositoryImpl(simpleDataSource);
-    }
-
-    @Bean
-    public PersonRepository personRepository(SimpleDataSource simpleDataSource){
-        return new PersonRepositoryImpl(simpleDataSource);
-    }
-
-    @Bean
-    public GreetingStyleService greetingStyleService(GreetingsRepository greetingsRepository){
-        return new FormalGreetingStyleServiceImpl(greetingsRepository);
-    }
-
-    @Bean
-    public PersonGreeterService personGreeterService(PersonRepository personRepository, GreetingStyleService greetingStyleService){
-        return new PersonGreeterServiceImpl(personRepository, greetingStyleService);
-    }
 
     public static void main( String[] args ) {
         System.out.println("\n *** WELCOME TO GREAT PERSONS GREATER *** \n");
@@ -53,7 +28,7 @@ public class App {
 //        BeanFactory beanFactory = new PropertiesBeanFactory("configuration.properties");
 //        PersonGreeterService personGreeterService = (PersonGreeterService) beanFactory.getBean("personGreeterService");
 
-        ApplicationContext context = new AnnotationConfigApplicationContext(App.class);
+        ApplicationContext context = new ClassPathXmlApplicationContext("application-context.xml");
         PersonGreeterService personGreeterService = (PersonGreeterService) context.getBean("personGreeterService");
 
         String worldHello = personGreeterService.composeGreetingToTheWorld();
@@ -64,6 +39,5 @@ public class App {
 
         System.out.println("\n *** GOODBYE *** \n");
     }
-
 
 }
