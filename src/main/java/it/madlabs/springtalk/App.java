@@ -17,7 +17,7 @@ import it.madlabs.springtalk.model.repositories.impl.PersonRepositoryImpl;
  */
 public class App {
     public static void main( String[] args ) {
-        System.out.println("\n *** WELCOME TO GREAT PERSONS GREATER *** \n");
+        System.out.println("\n *** WELCOME TO GREAT PERSONS GREETER *** \n");
 
         SimpleDataSource simpleDataSource = new SimpleDataSourceImpl();
 
