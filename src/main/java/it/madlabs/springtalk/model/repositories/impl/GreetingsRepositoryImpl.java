@@ -14,6 +14,7 @@ import java.util.List;
 public class GreetingsRepositoryImpl
         implements GreetingsRepository {
 
+    @Autowired
     public SimpleDataSource simpleDataSource;
 
 //    public GreetingsRepositoryImpl(){
@@ -24,7 +25,6 @@ public class GreetingsRepositoryImpl
     public GreetingsRepositoryImpl() {
     }
 
-    @Autowired
     public GreetingsRepositoryImpl(SimpleDataSource simpleDataSource) {
         this.simpleDataSource = simpleDataSource;
     }
