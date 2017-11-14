@@ -14,7 +14,10 @@ import java.util.Random;
 @Component
 public class PersonGreeterServiceImpl implements PersonGreeterService {
 
+    @Autowired
     private PersonRepository personRepository;
+
+    @Autowired
     private GreetingStyleService greetingStyleService;
 
 //    public PersonGreeterServiceImpl() {
@@ -25,7 +28,6 @@ public class PersonGreeterServiceImpl implements PersonGreeterService {
     public PersonGreeterServiceImpl() {
     }
 
-    @Autowired
     public PersonGreeterServiceImpl(PersonRepository personRepository, GreetingStyleService greetingStyleService) {
         this.personRepository = personRepository;
         this.greetingStyleService = greetingStyleService;
