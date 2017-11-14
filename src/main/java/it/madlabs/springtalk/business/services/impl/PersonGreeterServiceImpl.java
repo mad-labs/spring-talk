@@ -6,6 +6,7 @@ import it.madlabs.springtalk.model.entities.Person;
 import it.madlabs.springtalk.model.repositories.PersonRepository;
 import it.madlabs.springtalk.model.repositories.impl.PersonRepositoryImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import java.util.Calendar;
@@ -14,7 +15,11 @@ import java.util.Random;
 @Component
 public class PersonGreeterServiceImpl implements PersonGreeterService {
 
+    @Autowired
     private PersonRepository personRepository;
+
+    @Autowired
+    @Qualifier("formalGreetingStyleServiceImpl")
     private GreetingStyleService greetingStyleService;
 
 //    public PersonGreeterServiceImpl() {
@@ -25,7 +30,6 @@ public class PersonGreeterServiceImpl implements PersonGreeterService {
     public PersonGreeterServiceImpl() {
     }
 
-    @Autowired
     public PersonGreeterServiceImpl(PersonRepository personRepository, GreetingStyleService greetingStyleService) {
         this.personRepository = personRepository;
         this.greetingStyleService = greetingStyleService;
