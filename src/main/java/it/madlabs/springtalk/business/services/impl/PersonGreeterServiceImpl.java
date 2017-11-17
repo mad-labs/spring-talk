@@ -15,7 +15,11 @@ import java.util.Random;
 @Component
 public class PersonGreeterServiceImpl implements PersonGreeterService {
 
+    @Autowired
     private PersonRepository personRepository;
+
+    @Autowired
+    @Qualifier("formalGreetingStyleServiceImpl")
     private GreetingStyleService greetingStyleService;
 
 //    public PersonGreeterServiceImpl() {
