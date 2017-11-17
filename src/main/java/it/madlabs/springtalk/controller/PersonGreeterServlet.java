@@ -1,8 +1,11 @@
 package it.madlabs.springtalk.controller;
 
+import it.madlabs.springtalk.App;
 import it.madlabs.springtalk.business.services.PersonGreeterService;
 import it.madlabs.springtalk.utils.BeanFactory;
 import it.madlabs.springtalk.utils.PropertiesBeanFactory;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -16,9 +19,16 @@ public class PersonGreeterServlet
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        BeanFactory beanFactory = new PropertiesBeanFactory("configuration.properties");
 
-        PersonGreeterService personGreeterService = (PersonGreeterService) beanFactory.getBean("personGreeterService");
+//        BeanFactory beanFactory = new PropertiesBeanFactory("configuration.properties");
+//        PersonGreeterService personGreeterService = (PersonGreeterService) beanFactory.getBean("personGreeterService");
+
+        ApplicationContext context = new AnnotationConfigApplicationContext(App.class);
+        //Exception in thread "main" org.springframework.beans.factory.NoSuchBeanDefinitionException: No bean named 'personGreeterService' available
+        //Why? Because bean has bean a different name!
+        //We can undestand this with: System.out.println("context.getBeanDefinitionNames() = [" + Arrays.asList(context.getBeanDefinitionNames()) + "]");
+
+        PersonGreeterService personGreeterService = (PersonGreeterService) context.getBean("personGreeterService");
 
         String message = personGreeterService.composeGreetingToRandomPerson();
         req.setAttribute("message", message);
