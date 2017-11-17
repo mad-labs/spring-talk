@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Arrays;
 
 public class PersonGreeterServlet
         extends HttpServlet {
@@ -24,11 +25,20 @@ public class PersonGreeterServlet
 //        PersonGreeterService personGreeterService = (PersonGreeterService) beanFactory.getBean("personGreeterService");
 
         ApplicationContext context = new AnnotationConfigApplicationContext(App.class);
+
         //Exception in thread "main" org.springframework.beans.factory.NoSuchBeanDefinitionException: No bean named 'personGreeterService' available
         //Why? Because bean has bean a different name!
-        //We can undestand this with: System.out.println("context.getBeanDefinitionNames() = [" + Arrays.asList(context.getBeanDefinitionNames()) + "]");
+        //We can undestand this with:
 
-        PersonGreeterService personGreeterService = (PersonGreeterService) context.getBean("personGreeterService");
+        System.out.println("context.getBeanDefinitionNames() = [" + Arrays.asList(context.getBeanDefinitionNames()) + "]");
+
+
+        PersonGreeterService personGreeterService = (PersonGreeterService) context.getBean("personGreeterServiceImpl");
+
+        //Exception in thread "main" java.lang.NullPointerException
+        //at it.madlabs.springtalk.business.services.impl.PersonGreeterServiceImpl.composeGreetingToRandomPerson(PersonGreeterServiceImpl.java:38)
+        //Why? Because we forgot some wiring!
+        //personRepository is null because noone tell application context to fill it with something!
 
         String message = personGreeterService.composeGreetingToRandomPerson();
         req.setAttribute("message", message);
