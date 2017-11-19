@@ -13,7 +13,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  */
 @Configuration
 @Import(RootConfig.class)
-public class App implements WebMvcConfigurer {
+public class App {
 
     public static void main( String[] args ) {
         System.out.println("\n *** WELCOME TO GREAT PERSONS GREETER *** \n");
