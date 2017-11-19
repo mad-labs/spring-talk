@@ -3,6 +3,7 @@ package it.madlabs.springtalk;
 import it.madlabs.springtalk.business.services.GreetingStyleService;
 import it.madlabs.springtalk.business.services.PersonGreeterService;
 import it.madlabs.springtalk.business.services.impl.FormalGreetingStyleServiceImpl;
+import it.madlabs.springtalk.business.services.impl.InformalGreetingStyleServiceImpl;
 import it.madlabs.springtalk.business.services.impl.PersonGreeterServiceImpl;
 import it.madlabs.springtalk.model.data.SimpleDataSource;
 import it.madlabs.springtalk.model.data.impl.SimpleDataSourceImpl;
@@ -14,6 +15,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Scope;
 
 /**
  * Hello world!
@@ -33,18 +35,24 @@ public class App {
     }
 
     @Bean
+    @Scope("singleton")
     public PersonRepository personRepository(SimpleDataSource simpleDataSource){
         return new PersonRepositoryImpl(simpleDataSource);
     }
 
     @Bean
-    public GreetingStyleService greetingStyleService(GreetingsRepository greetingsRepository){
+    public GreetingStyleService formalGreetingStyleService(GreetingsRepository greetingsRepository){
         return new FormalGreetingStyleServiceImpl(greetingsRepository);
     }
 
     @Bean
-    public PersonGreeterService personGreeterService(PersonRepository personRepository, GreetingStyleService greetingStyleService){
-        return new PersonGreeterServiceImpl(personRepository, greetingStyleService);
+    public GreetingStyleService informalGreetingStyleService(GreetingsRepository greetingsRepository){
+        return new InformalGreetingStyleServiceImpl(greetingsRepository);
+    }
+
+    @Bean
+    public PersonGreeterService personGreeterService(PersonRepository personRepository, GreetingStyleService formalGreetingStyleService){
+        return new PersonGreeterServiceImpl(personRepository, formalGreetingStyleService);
     }
 
     public static void main( String[] args ) {
