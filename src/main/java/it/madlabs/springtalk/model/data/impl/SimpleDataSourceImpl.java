@@ -30,10 +30,10 @@ public class SimpleDataSourceImpl implements SimpleDataSource {
         catalogs.put(Person.TABLE_NAME, loadPersonsFromGoogleSheetCsvFile());
         catalogs.put(Greeting.TABLE_NAME, new String[][]{
                 {"type", "period", "format"},
-                {"formal", "am", "CONGRATULATIONS: %s %s (%s) !! You Won!!"},
-                {"formal", "pm", "CONGRATULATIONS: %s %s (%s) !! You Won!!"},
-                {"informal", "am", "CONGRATULATIONS: %s %s (%s) !! You Won!!"},
-                {"informal", "pm", "CONGRATULATIONS: %s %s (%s) !! You Won!!"}
+                {"formal", "am", "%s %s (%s)"},
+                {"formal", "pm", " %s %s (%s)"},
+                {"informal", "am", "%s %s (%s)"},
+                {"informal", "pm", " %s %s (%s)"}
         });
     }
 
