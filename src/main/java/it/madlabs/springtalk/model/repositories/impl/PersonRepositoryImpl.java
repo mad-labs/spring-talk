@@ -13,6 +13,10 @@ public class PersonRepositoryImpl
 
     public SimpleDataSource simpleDataSource;
 
+    public PersonRepositoryImpl(SimpleDataSource simpleDataSource) {
+        this.simpleDataSource = simpleDataSource;
+    }
+
     public PersonRepositoryImpl(){
         this.simpleDataSource = new SimpleDataSourceImpl();
     }

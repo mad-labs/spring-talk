@@ -13,6 +13,10 @@ public class GreetingsRepositoryImpl
 
     public SimpleDataSource simpleDataSource;
 
+    public GreetingsRepositoryImpl(SimpleDataSource simpleDataSource) {
+        this.simpleDataSource = simpleDataSource;
+    }
+
     public GreetingsRepositoryImpl(){
         this.simpleDataSource = new SimpleDataSourceImpl();
     }

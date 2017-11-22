@@ -12,6 +12,10 @@ public class InformalGreetingStyleServiceImpl
 
     private GreetingsRepository greetingsRepository;
 
+    public InformalGreetingStyleServiceImpl(GreetingsRepository greetingsRepository) {
+        this.greetingsRepository = greetingsRepository;
+    }
+
     public InformalGreetingStyleServiceImpl() {
         this.greetingsRepository = new GreetingsRepositoryImpl();
     }
