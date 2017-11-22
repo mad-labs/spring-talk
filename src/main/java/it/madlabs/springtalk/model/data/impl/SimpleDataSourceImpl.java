@@ -11,6 +11,12 @@ import java.util.Scanner;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class SimpleDataSourceImpl implements SimpleDataSource {
+    private static final String[] IMPORT_ERROR = {"row error", "row error", "row error"};
+    private static final String[][] IMPORT_ERRORS = {
+            {"name", "surname", "email"},
+            {"*ALL RAW IN ERROR*", "*ALL RAW IN ERROR*", "*ALL RAW IN ERROR*"}
+    };
+
     private Map<String, String[][]> catalogs;
 
     public SimpleDataSourceImpl() {
@@ -32,26 +38,34 @@ public class SimpleDataSourceImpl implements SimpleDataSource {
     }
 
     private String [][] loadPersonsFromGoogleSheetCsvFile(){
-        InputStream input = Thread.currentThread().getContextClassLoader().getResourceAsStream(Person.TABLE_NAME+ ".csv");
-        Scanner scanner = new Scanner(input);
-        ArrayList<String> rowList = new ArrayList<>();
-        while(scanner.hasNext()){
-            String aLine = scanner.nextLine();
-            rowList.add(aLine);
+        try {
+            InputStream input = Thread.currentThread().getContextClassLoader().getResourceAsStream(Person.TABLE_NAME+ ".csv");
+            Scanner scanner = new Scanner(input);
+            ArrayList<String> rowList = new ArrayList<>();
+            while(scanner.hasNext()){
+                String aLine = scanner.nextLine();
+                rowList.add(aLine);
+            }
+            String[] header = rowList.get(0).split(",");
+            int rawLenght = header.length - 1;
+            int tableLenght = rowList.size();
+            String[][] loadedData = new String[tableLenght][rawLenght];
+            for (int i = 0; i < tableLenght; i++) {
+                try {
+                    String[] csvRow = rowList.get(i).split(",");
+                    String[] catalogRow = new String[rawLenght];
+                    catalogRow[0] = csvRow[2];
+                    catalogRow[1] = csvRow[3];
+                    catalogRow[2] = csvRow[1];
+                    loadedData[i] = catalogRow;
+                } catch (Exception e){
+                    loadedData[i] = IMPORT_ERROR;
+                }
+            }
+            return loadedData;
+        } catch (Exception e){
+            return IMPORT_ERRORS;
         }
-        String[] header = rowList.get(0).split(",");
-        int rawLenght = header.length - 1;
-        int tableLenght = rowList.size();
-        String[][] loadedData = new String[tableLenght][rawLenght];
-        for (int i = 0; i < tableLenght; i++) {
-            String[] csvRow = rowList.get(i).split(",");
-            String[] catalogRow = new String[rawLenght];
-            catalogRow[0] = csvRow[2];
-            catalogRow[1] = csvRow[3];
-            catalogRow[2] = csvRow[1];
-            loadedData[i] = catalogRow;
-        }
-        return loadedData;
     }
 
     public String[] getRawDataHeader(String tableName) {
