@@ -21,19 +21,19 @@ public class SimpleDataSourceImpl implements SimpleDataSource {
 
     public SimpleDataSourceImpl() {
         this.catalogs = new ConcurrentHashMap<String, String[][]>();
-        catalogs.put(Person.TABLE_NAME, new String[][]{
-                {"name", "surname", "email"},
-                {"Mario", "Mario", "mario.mario@nintendo.com"},
-                {"Luigi", "Mario", "luigi.mario@nintendo.com"} ,
-                {"Bowser", "Koopa", "bowser.koopa@nintendo.com"}
-        });
-//        catalogs.put(Person.TABLE_NAME, loadPersonsFromGoogleSheetCsvFile());
+//        catalogs.put(Person.TABLE_NAME, new String[][]{
+//                {"name", "surname", "email"},
+//                {"Mario", "Mario", "mario.mario@nintendo.com"},
+//                {"Luigi", "Mario", "luigi.mario@nintendo.com"} ,
+//                {"Bowser", "Koopa", "bowser.koopa@nintendo.com"}
+//        });
+        catalogs.put(Person.TABLE_NAME, loadPersonsFromGoogleSheetCsvFile());
         catalogs.put(Greeting.TABLE_NAME, new String[][]{
                 {"type", "period", "format"},
-                {"formal", "am", "Good morning %s %s (%s)"},
-                {"formal", "pm", "Good evening %s %s (%s)"},
-                {"informal", "am", "Hi %s %s (%s)"},
-                {"informal", "pm", "Hello %s %s (%s)"}
+                {"formal", "am", "CONGRATULATIONS: %s %s (%s) !! You Won!!"},
+                {"formal", "pm", "CONGRATULATIONS: %s %s (%s) !! You Won!!"},
+                {"informal", "am", "CONGRATULATIONS: %s %s (%s) !! You Won!!"},
+                {"informal", "pm", "CONGRATULATIONS: %s %s (%s) !! You Won!!"}
         });
     }
 
